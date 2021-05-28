@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import RevealingWord from "./components/RevealingWord";
 import words from "./data/words.json";
 
 function App() {
@@ -23,9 +24,16 @@ function App() {
 
   return (
     <div className="App">
-      <h3>Montagsmaler</h3>
-      <h1>{currentWord}</h1>
-      <button onClick={setRandomWord}>Nächstes Wort</button>
+      <div className="spacer"></div>
+      <div className="container">
+        <RevealingWord
+          word={currentWord}
+          randomWords={words}
+          duration={800}
+        ></RevealingWord>
+        <button onClick={setRandomWord}>Nächstes Wort</button>
+      </div>
+      <div className="spacer"></div>
     </div>
   );
 }
